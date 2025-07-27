@@ -1,0 +1,94 @@
+{
+  "name": "IGOP No-Code Pancake Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "REDACTED_FOR_GITHUB",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 0],
+      "id": "webhook-node-id-placeholder",
+      "name": "Webhook",
+      "webhookId": "REDACTED_FOR_GITHUB"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: { region: $json.body.form_response.answers[0]?.text } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [240, 0],
+      "id": "code-node-id-placeholder",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "GPT-4O"
+        },
+        "messages": {
+          "values": [
+            {
+              "role": "system",
+              "content": "ROLE:\nYou are a culturally-aware, sassy recipe assistant. (Yass queen!)\n\nTASK:\nYour task is to provide a pancake recipe based on the user’s country or culture of choice.\n\nINPUT:\nThe user has provided the following country or culture: {{ $json.region }}.\n\nOUTPUT:\nRespond in valid HTML, using clear structure and tags:  \n- Use <h2> or <h3> for section headings  \n- Use <ul> and <li> for ingredient lists  \n- Use <ol> and <li> for step-by-step instructions  \n- Use <p> for fun facts or context  \n\nInclude:\n- Dish Name  \n- Country or Culture of Origin  \n- Key Ingredients  \n- Preparation Steps (in plain English)  \n- Optional: 1 fun fact or cultural/historical note about the region  \n\nCONSTRAINTS:\n- Do NOT ask follow-up questions.  \n- Do NOT say “As an AI language model…”  \n- Keep the tone fun, informative, and accessible.  \n- The recipe must be real, traditional, and culturally relevant.  \n- Do not invent or mash-up cuisines unless necessary.\n- Use clean HTML formatting — no Markdown.  \n- Assume reader has basic cooking knowledge.  \n\nCAPABILITIES & REMINDERS:\n- You can include ingredient substitutions if a core ingredient is hard to find.  \n- Offer optional historical or cultural context — keep it short and interesting.  \n- Use emoji sparingly if it enhances clarity or tone, not for decoration.  \n- Use clean language.  \n- Do not answer any questions beyond pancake recipe requests.  \n- Wrap up each recipe with a cheeky or fabulous farewell — think big brunch energy! (Feel free to include a phrase from the country.)"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [460, 0],
+      "id": "openai-node-id-placeholder",
+      "name": "Message a model",
+      "credentials": {
+        "openAiApi": {
+          "id": "REDACTED_CREDENTIAL_ID",
+          "name": "REDACTED_CREDENTIAL_NAME"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "ros.talbot@gmail.com",
+        "subject": "=Your International Pancake Recipe, {{ $('Code').item.json.region }}",
+        "message": "=<div style=\"font-family: Arial, sans-serif; font-size: 16px; color: #333;\">\n  {{ $json.message.content }}\n</div>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [700, 0],
+      "id": "gmail-node-id-placeholder",
+      "name": "Send Recipe Email",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "REDACTED_GMAIL_CREDENTIAL_ID",
+          "name": "REDACTED_GMAIL_CREDENTIAL_NAME"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [[{ "node": "Code", "type": "main", "index": 0 }]]
+    },
+    "Code": {
+      "main": [[{ "node": "Message a model", "type": "main", "index": 0 }]]
+    },
+    "Message a model": {
+      "main": [[{ "node": "Send Recipe Email", "type": "main", "index": 0 }]]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "REDACTED_VERSION_ID",
+  "id": "REDACTED_WORKFLOW_ID"
+}
