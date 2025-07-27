@@ -50,7 +50,7 @@ It also included constraints like:
 - [`igop_nocode_pancake_agent_n8n_workflow.json`](./igop_nocode_pancake_agent_n8n_workflow.json) – Full n8n export of the working agent  
 - [`igop_gpt_prompt_sassy_pancake_agent.md`](./igop_gpt_prompt_sassy_pancake_agent.md) – The full prompt used to generate culturally accurate, sassy recipes  
 - [`example-output_brazilian-pancake.html`](./example-output_brazilian-pancake.html) – Sample output in clean HTML format  
-- [`screenshots/`](./screenshots/) – Inbox and formatting previews  
+- [`screenshots/`](./screenshots/) – Formatting previews  
 - [`README.md`](./README.md) – You’re reading it!
 
 
