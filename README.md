@@ -47,8 +47,8 @@ It also included constraints like:
 
 ## 📁 Files Included
 
-- `workflow.json` – n8n export of the full working build
-- `prompt-template.md` – the GPT prompt used
+- `igop_nocode_pancake_agent_n8n_workflow.json` – n8n export of the full working build
+- `igop_gpt_prompt_sassy_pancake_agent.md` – the GPT prompt used
 - `screenshots/` – visual examples of output
 - `README.md` – you’re reading it!
 
