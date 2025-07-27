@@ -47,10 +47,11 @@ It also included constraints like:
 
 ## 📁 Files Included
 
-- `igop_nocode_pancake_agent_n8n_workflow.json` – n8n export of the full working build
-- `igop_gpt_prompt_sassy_pancake_agent.md` – the GPT prompt used
-- `screenshots/` – visual examples of output
-- `README.md` – you’re reading it!
+- [`igop_nocode_pancake_agent_n8n_workflow.json`](./igop_nocode_pancake_agent_n8n_workflow.json) – Full n8n export of the working agent  
+- [`igop_gpt_prompt_sassy_pancake_agent.md`](./igop_gpt_prompt_sassy_pancake_agent.md) – The full prompt used to generate culturally accurate, sassy recipes  
+- [`example-output_brazilian-pancake.html`](./example-output_brazilian-pancake.html) – Sample output in clean HTML format  
+- [`screenshots/`](./screenshots/) – Inbox and formatting previews  
+- [`README.md`](./README.md) – You’re reading it!
 
 
 ## 🎉 Sample Output
