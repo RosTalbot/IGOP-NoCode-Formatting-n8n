@@ -52,6 +52,9 @@ It also included constraints like:
 - [`example-output_brazilian-pancake.html`](./example-output_brazilian-pancake.html) – Sample output in clean HTML format  
 - [`screenshots/`](./screenshots/) – Formatting previews  
 - [`README.md`](./README.md) – You’re reading it!
+> 🔒 **Note:** The workflow JSON has been sanitized for public sharing.  
+> Personal emails, credential IDs, and webhook URLs have been replaced with placeholder text.  
+> Please update these with your own values before use.
 
 
 ## 🎉 Sample Output
